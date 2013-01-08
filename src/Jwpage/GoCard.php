@@ -5,10 +5,11 @@ use Goutte\Client;
 
 class GoCard {
     
-    private $_cookie_file = 'cookiefile';
-    private $_card_num;
-    private $_password; 
-    private $_results;
+    protected $cardNumber;
+    protected $password;
+    protected $loginCrawler;
+    protected $client;
+    protected $baseUrl;
     
     /**
      * Creates a new GoCard instance.
@@ -41,7 +42,6 @@ class GoCard {
                 'cardOps' => 'Display'
             )
         );
-        // Save this for use in the getBalance function.
         $this->loginCrawler = $crawler;
         return count($crawler->filter('.content h2:contains("Sorry, there was a problem")')) === 0;
     }
@@ -54,8 +54,8 @@ class GoCard {
         if (!$this->loginCrawler) {
             $this->login();
         }
-
-        $balance = $crawler->filter('#balance-table td:nth-child(2)')->text();
+        
+        $balance = $this->loginCrawler->filter('#balance-table td:nth-of-type(2)')->text();
         return str_replace('$', '', $balance);
     }
 

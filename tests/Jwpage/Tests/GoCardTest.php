@@ -28,6 +28,12 @@ class GoCardTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->goCard->login());
     }
 
+    public function testGetBalance()
+    {
+        $this->addMock('login_success.txt');
+        $this->assertEquals('51.18', $this->goCard->getBalance());
+    }
+
     private function addMock($path)
     {
         $this->mockPlugin->addResponse(MockPlugin::getMockFile(MOCK_BASE_PATH.'/'.$path));
