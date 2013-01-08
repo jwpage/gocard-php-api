@@ -1,5 +1,5 @@
 <?php
-require_once 'libs/simple_html_dom.php';
+namespace Jwpage;
 
 class GoCard {
     
