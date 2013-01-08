@@ -41,25 +41,22 @@ class GoCard {
                 'cardOps' => 'Display'
             )
         );
-        return count($crawler->filter('.content h2:contains("Sorry, there was a problem")')) > 0;
+        // Save this for use in the getBalance function.
+        $this->loginCrawler = $crawler;
+        return count($crawler->filter('.content h2:contains("Sorry, there was a problem")')) === 0;
     }
 
     /**
      * Get the current GoCard balance.
      * @return string balance in $xx.xx format
      */
-    public function get_balance() {
-        if(!isset($this->_results['login'])) {
+    public function getBalance() {
+        if (!$this->loginCrawler) {
             $this->login();
         }
-        
-        $dom = str_get_html($this->_results['login']);
-        $balance = $dom->find('._results_table td', 1);
-        if($balance) {
-            return $balance->plaintext;
-        }
-        $dom->clear();
-        return false;
+
+        $balance = $crawler->filter('#balance-table td:nth-child(2)')->text();
+        return str_replace('$', '', $balance);
     }
 
     /**

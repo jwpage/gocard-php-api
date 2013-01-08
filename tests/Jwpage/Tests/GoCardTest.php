@@ -10,16 +10,21 @@ class GoCardTest extends \PHPUnit_Framework_TestCase
 {
     public function setup()
     {
-        $this->goCard = new GoCard('cardNumber', 'password');
+        $this->goCard = new GoCard(GOCARD_TEST_NUMBER, GOCARD_TEST_PASSWORD);
         $this->mockPlugin = new MockPlugin();
         $this->goCard->getClient()->getClient()->addSubscriber($this->mockPlugin);
+        #$this->goCard->getClient()->getClient()->addSubscriber(LogPlugin::getDebugPlugin());
+    }
+
+    public function testLoginSuccess()
+    {
+        $this->addMock('login_success.txt');
+        $this->assertTrue($this->goCard->login());
     }
 
     public function testLoginFailure()
     {
         $this->addMock('login_failure.txt');
-        $this->goCard->login();
-        print_r($this->goCard->getClient()->getResponse());
         $this->assertFalse($this->goCard->login());
     }
 
