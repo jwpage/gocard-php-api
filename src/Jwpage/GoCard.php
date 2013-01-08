@@ -1,6 +1,8 @@
 <?php
 namespace Jwpage;
 
+use Goutte\Client;
+
 class GoCard {
     
     private $_cookie_file = 'cookiefile';
@@ -11,24 +13,35 @@ class GoCard {
     /**
      * Creates a new GoCard instance.
      */
-    public function __construct($cardnum, $password) {
-        $this->_card_num = $cardnum;
-        $this->_passord = $password;
+    public function __construct($cardNumber, $password)
+    {
+        $this->cardNumber = $cardNumber;
+        $this->password   = $password;
+        $this->client     = new Client();
+        $this->baseUrl    = 'https://gocard.translink.com.au/webtix';
+    }
+
+    public function getClient()
+    {
+        return $this->client;
     }
     
     /**
      * Logs the user in to the Gocard webiste.
      * @return boolean sucessful login
      */
-    public function login() {
-        $data = array(
-            'cardNum' => $this->_card_num,
-            'pass' => $this->_password,
-            'cardOps' => 'Display'
+    public function login() 
+    {
+        $crawler = $this->client->request(
+            'POST', 
+            $this->baseUrl.'/',
+            array(
+                'cardNum' => $this->cardNumber,
+                'pass'    => $this->password,
+                'cardOps' => 'Display'
+            )
         );
-        $ch = $this->_prepare_curl("https://www.seqits.com.au/webtix/welcome/welcome.do", $data); 
-        $result = $this->_exec_curl($ch, 'login');
-        return strpos($result, 'Unable to retrieve') === false;
+        return count($crawler->filter('.content h2:contains("Sorry, there was a problem")')) > 0;
     }
 
     /**

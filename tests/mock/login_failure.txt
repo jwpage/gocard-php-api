@@ -1,0 +1,349 @@
+HTTP/1.1 200 OK
+Date: Tue, 08 Jan 2013 11:01:56 GMT
+Content-Type: text/html
+Set-Cookie: webtixContext=desktop; domain=.translink.com.au; expires=Thursday, 07-Feb-2013 11:01:57 GMT; path=/, JSESSIONID=TrdvQr8FvMGVrXW2ZqHY0dPc5JG6bQMtnRt2TdSG2J0Lx0mBHf7L!-664412978; domain=.translink.com.au; path=/, Coyote-2-a64312a=a6431fe:0; path=/
+Transfer-Encoding: chunked
+
+<!DOCTYPE html>
+<html lang="en-au">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="/webtix/media/favicon.ico">
+<link rel="icon" href="/webtix/media/favicon.ico">
+
+
+
+
+
+    
+    
+
+        <head>
+            <title>Welcome to go card online | TransLink</title>
+            <meta name="description"
+                  content="TransLink is your one stop for public transport information, and coordinates and integrates public transport services in South East Queensland."/>
+            <meta name="keywords"
+                  content="TransLink,public,transport,information,bus,train,ferry,timetables,maps,events,service updates,announcements,go card,fares,tickets"/>
+            <meta name="author" content="TransLink Transit Authority"/>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+            <link rel="stylesheet" href="/webtix/css/desktop-combined.min.css" type="text/css"
+                  media="screen,print"/>
+            <!--[if lte IE 7]>
+            <link rel="stylesheet" type="text/css" href="/webtix/css/nonstandard.ie.min.css"/>
+            <![endif]-->
+            <link rel="stylesheet" href="/webtix/css/print.min.css" type="text/css"
+                  media="print"/>
+            <script src="/webtix/script/jquery.min.js" type="text/javascript"
+                    charset="utf-8"></script>
+            <script src="/webtix/script/jquery-ui.min.js" type="text/javascript"
+                    charset="utf-8"></script>
+            <script src="/webtix/script/desktop-combined.min.js" type="text/javascript"
+                    charset="utf-8"></script>
+        </head>
+
+
+        <body>
+
+        <ul class="access">
+            <li><a href="#navigation-shortcut" tabindex="0">Skip to site navigation</a></li>
+            <li><a href="#content-shortcut" tabindex="0">Skip to content</a></li>
+            <li><a href="#footer-shortcut" tabindex="0">Skip to footer</a></li>
+        </ul>
+
+        <div id="center">
+            <div id="container-shadow">
+                <div id="container">
+                    
+
+
+
+
+
+    
+    
+        <div id="header">
+            <div id="courtesy-nav">
+                <ul id="courtesy-links">
+                    <li><a href="/webtix/welcome/welcome.do?switchToMobile=true"
+                           title="View the website on your mobile">Mobile site</a></li>
+                    <li><a href="http://translink.com.au/tickets-and-fares/go-card/online" title="go card"><i>go</i>
+                        card login</a></li>
+
+                    <li><a href="http://translink.com.au/site-information/site-map"
+                           title="An overview of the entire TransLink website">Site map</a></li>
+                    <li class="last"><a href="http://translink.com.au/site-information/contact-us-and-help"
+                                        title="Call us on 13 12 30, e-mail us, see us in person, follow us on Twitter, or send us a letter.">Contact
+                        us &amp; help</a></li>
+                </ul>
+            </div>
+            <div id="header-content">
+                <h1 class="access">TransLink - Integrated public transport for South East Queensland</h1>
+                <a href="http://translink.com.au/" title="TransLink"><img
+                        src="/webtix/images/translink-logo.png"
+                        alt="TransLink"
+                        style="width: 237px; height: 46px;"
+                        class="logo"/></a>
+            </div>
+            <a id="navigation-shortcut" tabindex="0"></a>
+
+            <div id="main-nav" class="clearfix">
+                <div id="header-search" class="rightalign">
+                    <form action="http://translink.com.au/site-information/search/results" method="get" id="search"
+                          class="searchform" name="search">
+                        <fieldset>
+                            <legend class="access">Search the TransLink website</legend>
+                            <p>
+                                <label for="searchbox" id="searchlabel1">Search site&hellip;</label>
+                                <input type="text" name="query" id="searchbox" class="searchfield"
+                                       placeholder="Search site&hellip;"/>
+                                <input type="submit" value="Search" class="searchbutton"/>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <ul class="text-shadow-light">
+                    <li><a href="http://translink.com.au/" title="TransLink - Home">Home</a></li>
+                    <li><a href="http://translink.com.au/travel-information" id="travelMenuLink">Travel
+                        information</a></li>
+                    <li class="this-page"><a href="http://translink.com.au/tickets-and-fares">Tickets and fares</a>
+                    </li>
+                    <li><a href="http://translink.com.au/news-and-updates">News and updates</a></li>
+                    <li><a href="http://translink.com.au/about-translink">About TransLink</a></li>
+                </ul>
+            </div>
+        </div>
+    
+
+                    <a id="content-shortcut" tabindex="0"></a>
+
+                    <div id="contentContainer">
+
+                        <!-- BODY -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        <div id="breadcrumbs">
+            <span class="access">You are here:</span>
+
+            <p>
+                <a href="http://translink.com.au/">Home</a>
+                <a href="http://translink.com.au/tickets-and-fares">Tickets and fares</a>
+                <a href="http://translink.com.au/tickets-and-fares/go-card">Go card</a>
+                <em>Website error</em>
+            </p>
+        </div>
+        <div id="content-left-column">
+        <div class="clearfix" id="headingBar">
+            <h1><em>Website error</em>
+            </h1>
+            
+            <span id="resize_up"><a href="#">increase text size</a></span>
+            <span id="resize_mid"><a href="#">reset text size</a></span>
+            <span id="resize_down"><a href="#">decrease text size</a></span>
+        </div>
+        <div class="underline indented">&nbsp;</div>
+    
+
+
+<!-- START BODY CONTENT -->
+
+
+<div class="content">
+
+    <h2>Sorry, there was a problem processing your <em>go</em> card information</h2>
+
+    <div>
+
+        <div id="contentWell">
+            <div><p>Unable to retrieve <b><i>go</i></b> card <font color=red>0160017466859162</font>. Please make sure the serial number and password are entered correctly.
+</p></div>
+
+            <p>Where you can go from here:</p>
+            <ul>
+                
+                    
+                    
+                        
+                        <li>
+                            Go to the
+                            <a class="default-button" href="/webtix/welcome/welcome.do">
+                                 Home page
+                            </a>
+                        </li>
+                    
+                
+                <li>Use the navigation bar above.</li>
+                <li>Use the <a href="http://jp.translink.com.au/travel-information/journey-planner/">journey
+                    planner</a> to find public transport services.
+                </li>
+                <li>Find <a
+                        href="http://jp.translink.com.au/travel-information/network-information/buses/bus-timetables">bus</a>
+                    or
+                    <a href="http://jp.translink.com.au/travel-information/network-information/ferries/ferry-timetables">ferry</a>
+                    timetables.
+                </li>
+                <li>Go back to the <a href="http://translink.com.au/">TransLink home page</a>.</li>
+                <li><a href="http://translink.com.au/site-information/search">Search</a> the TransLink website.</li>
+                <li>Go to the <a href="http://translink.com.au/site-information/site-map">site map</a>.</li>
+            </ul>
+            <p>Please <a href="http://translink.com.au/site-information/contact-us-and-help">contact us</a> if the
+                problem persists. Our call centre is open 24 hours a day, 7 days a week.</p>
+        </div>
+    </div>
+
+    <p class="icon_info">Please contact TransLink on 13 12 30 if you need further assistance.</p>
+</div>
+
+<script type="text/javascript">
+    function goBack() {
+        window.location.href = '';
+    }
+</script>
+
+                    </div>
+                        
+                    <div id="content-right-column">
+
+                        <div class="advertisement">
+                            <p>Advertisement</p>
+                            <a href="http://translink.com.au/tickets-and-fares/fares/go-frequently-then-go-for-free?utm_source=webtix-website&amp;utm_medium=online-ad&amp;utm_content=skyscraper&amp;utm_campaign=all-journeys"
+                               class="advertLink" target="_blank">
+                                <img width="160" height="600" src="/webtix/images/advertising/advertisement.jpg" class="advertImage"
+                                     alt="All journeys made using go card arent the same">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+
+
+    
+    
+        <a id="footer-shortcut" tabindex="0"></a>
+
+        <div id="footer">
+            <div id="footer-nav">
+                <img src="/webtix/images/transport-icons.png" width="110" height="35"
+                     alt="Buses, trains, ferries"/>
+            </div>
+            <div id="footer-languages" class="text-shadow-dark">
+                <h2>Information in your language</h2>
+
+                <ul id="section-other-languages" class="clearfix">
+                    <li class="first"><a href="http://translink.com.au/site-information/languages/arabic"
+                                         title="Arabic"><span dir="rtl">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</span></a>
+                    </li>
+                    <li><a href="http://translink.com.au/site-information/languages/chinese" title="Chinese">
+                        &#31616;&#20307;&#20013;&#25991;</a></li>
+                    <li><a href="http://translink.com.au/site-information/languages/french" title="French">Fran&ccedil;ais</a>
+                    </li>
+                    <li><a href="http://translink.com.au/site-information/languages/german"
+                           title="German">Deutsch</a></li>
+                    <li><a href="http://translink.com.au/site-information/languages/greek" title="Greek">&epsilon;&lambda;&lambda;&eta;&nu;&iota;&kappa;&#940;</a>
+                    </li>
+                    <li><a href="http://translink.com.au/site-information/languages/italian"
+                           title="Italian">Italiano</a>
+                    </li>
+                    <li><a href="http://translink.com.au/site-information/languages/japanese" title="Japanese">
+                        &#26085;&#26412;&#35486;</a></li>
+                    <li><a href="http://translink.com.au/site-information/languages/korean" title="Korean">&#54620;&#44397;&#50612;</a>
+                    </li>
+                    <li><a href="http://translink.com.au/site-information/languages/serbian" title="Serbian">&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;</a>
+                    </li>
+                    <li><a href="http://translink.com.au/site-information/languages/spanish" title="Spanish">Espa&ntilde;ol</a>
+                    </li>
+                    <li><a href="http://translink.com.au/site-information/languages/vietnamese" title="Vietnamese">Vi&#7879;t
+                        Ng&#7919;</a></li>
+                </ul>
+            </div>
+            <div id="footer-end" role="navigation">
+                <ul id="section-footer-links">
+                    <li><a href="http://translink.com.au/site-information/legal/copyright"
+                           title="Copyright">Copyright</a>
+                    </li>
+                    <li><a href="http://translink.com.au/site-information/legal/disclaimer" title="Disclaimer">Disclaimer</a>
+                    </li>
+                    <li><a href="http://translink.com.au/site-information/legal/privacy" title="Privacy">Privacy</a>
+                    </li>
+                    <li>
+                        <a href="http://translink.com.au/about-translink/reporting-and-publications/right-to-information"
+                           title="Right to information">Right to information</a></li>
+                    <li class="last"><a
+                            href="http://translink.com.au/site-information/contact-us-and-help/website-help"
+                            title="Website help">Website help</a></li>
+                </ul>
+                <p>&copy; TransLink Transit Authority 2012</p>
+            </div>
+        </div>
+    
+
+        </div>
+        </div>
+        
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        try {
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-18464408-1']);
+            _gaq.push(['_setDomainName', '.translink.com.au']);
+            _gaq.push(['_trackPageview']);
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        } catch (err) {
+        }
+    </script>
+
+
+
+
+
+
+        </body>
+    
+
+
+
+</html>
