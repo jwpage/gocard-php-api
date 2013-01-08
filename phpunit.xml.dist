@@ -1,4 +1,8 @@
 <phpunit bootstrap="tests/bootstrap.php">                                        
+    <php>
+        <const name="GOCARD_TEST_NUMBER"   value="foo" />
+        <const name="GOCARD_TEST_PASSWORD" value="bar" />
+    </php>
     <testsuites>                                                                 
         <testsuite>                                                              
             <directory>tests/</directory>                                        

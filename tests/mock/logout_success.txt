@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Date: Tue, 08 Jan 2013 11:24:15 GMT
+Pragma: no-cache
+Content-Type: text/html
+Expires: Thu, 01 Dec 1994 16:00:00 GMT
+Transfer-Encoding: chunked
+Cache-Control: no-store, no-cache, must-revalidate
+Set-Cookie: Coyote-2-a64312a=a6431fd:0; path=/
+
+<input value="Login" />

@@ -64,35 +64,42 @@ class GoCard {
      * @param string $period the period of history to retreive. Can be 'last20' or '-7', '-14', '-30' or '-60' days.
      * @return array of arrays, containing 'time' (in ISO format), 'action', 'location' and 'charge'
      */
-    public function get_history($period = 'last20') {
-        $data = array(
-            'condition_1' => $period,
-            'Refresh' => 'Refresh',
-        );  
-        $ch = $this->_prepare_curl("https://www.seqits.com.au/webtix/cardinfo/history.do", $data); 
-        $history = $this->_exec_curl($ch, 'history');
+    public function getHistory($startDate, $endDate) {
+        $crawler = $this->client->request(
+            'POST',
+            $this->baseUrl.'/tickets-and-fares/go-card/online/history',
+            array(
+                'startDate' => $startDate->format('d/m/Y'),
+                'endDate'   => $endDate->format('d/m/Y'),
+                'submit'    => 'Search'
+            )
+        );
+        $rows = $crawler->filter('#travel-history tbody tr');
 
-        $dom = str_get_html($history);
-        $_results = $dom->find('.results_table tr');
-        array_shift($_results); // The first row is the header.
-        $histories = array();
-        $tz = date_default_timezone_get();
-        date_default_timezone_set('Australia/Brisbane');
-        foreach($_results as $row) {
-            $tds = $row->find('td');
-            $time = date('c', strtotime($tds[0]->plaintext));
-            $charge = (float)str_replace('&nbsp;', '', trim($tds[3]->plaintext));
-            $hist = array(
-                'time' => $time,
-                'action' => $tds[1]->plaintext,
-                'location' => $tds[2]->plaintext,
-                'charge' => $charge,
-            );
-            $histories[] = $hist;
+        $entries = array();
+        foreach ($rows as $row) {
+            if ($row->getAttribute('class') == 'sub-heading') {
+                $currentDate = $row->firstChild->textContent;
+                continue;
+            }
+
+            if (!$row->hasAttribute('class')) {
+                $tds = $row->getElementsByTagName('td');
+                $start = \DateTime::createFromFormat('d F Y h:i A', $currentDate.' '.$tds->item(0)->textContent);
+                $end   = \DateTime::createFromFormat('d F Y h:i A', $currentDate.' '.$tds->item(2)->textContent);
+
+                $entry = array(
+                    'startTime' => $start,
+                    'startLocation' => $tds->item(1)->textContent,
+                    'endTime'   => $end,
+                    'endLocation' => $tds->item(3)->textContent,
+                    'cost' => str_replace('$ ', '', $tds->item(4)->textContent),
+                );
+                $entries[] = $entry;
+            }
+            // TODO: handle .sub-heading-transacton rows
         }
-        date_default_timezone_set($tz);
-        $dom->clear();
-        return $histories;
+        return $entries;
     }
 
     /**
@@ -100,53 +107,13 @@ class GoCard {
      * @return true assumes successful logout.
      */
     public function logout() {
-        $ch = $this->_prepare_curl("https://www.seqits.com.au/webtix/welcome/welcome.do?logout=true");
-        $logout = $this->_exec_curl($ch);
-        $this->_results = array();
-        // *Assumes* success.
-        return true;
-    }
-
-    /**
-     * Prepares a cURL object for use with the GoCard website.
-     * @param string $url the url to request
-     * @param array $postdata array of POST data to send
-     * @return cURL
-     */
-    private function _prepare_curl($url, $postdata = array()) {
-        $ch = curl_init($url);
-        curl_setopt_array($ch, array(
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HEADER => false,
-            CURLOPT_AUTOREFERER => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_COOKIEFILE => $this->_cookie_file,
-            CURLOPT_COOKIEJAR => $this->_cookie_file,
-            CURLOPT_SSL_VERIFYPEER => false,
-        ));
-        if(!empty($postdata)) {
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postdata));
-        }
-        return $ch;
-    }
-    
-    /**
-     * Exeute a cURL request, and optionally store the result for debugging purposes.
-     * @param cURL $ch the cURL object to exec.
-     * @param string $tag a tag used for identifying a stored result.
-     * return string|boolean the response from the cURL handle, false if cURL err.
-     */
-    private function _exec_curl($ch, $tag = null) {
-        $result = curl_exec($ch);
-        if($result && !curl_errno($ch)) {
-            if($tag) {
-                $this->_results[$tag] = $result;
-            }
-            curl_close($ch);
-            return $result;
-        }
-        curl_close($ch);
-        return false;
+        $crawler = $this->client->request(
+            'GET', 
+            '/welcome/welcome.do',
+            array(
+                'logout' => 'true'
+            )
+        );
+        return count($crawler->filter('input[value="Login"]')) > 0;
     }
 }
