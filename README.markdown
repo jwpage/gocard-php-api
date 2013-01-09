@@ -1,25 +1,24 @@
+# GoCard PHP API 
 
-# GoCard PHP API #
+A PHP5.3+ interface that scrapes the Queensland Transport GoCard website to
+retrieve your information.
 
-## Description ##
+## Installation
 
-A simple PHP interface to access the Queensland Transport GoCard website.
+Add this to your composer.json by running 
+`composer.phar require jwpage/gocard`.
 
-Supports:
+## Usage
 
-* Login
-* Get Balance
-* Get Activity History
-* Logout
+```php
+$goCard = new \Jwpage\GoCard($cardNumber, $password);
+$goCard->login();       // true
+$goCard->getBalance();  // 10.00
+$goCard->getHistory();  // array of \Jwpage\GoCard\History items
+$goCard->logout();      // true
+```
 
-## Usage ##
-    <?php
+## Running Tests
 
-    require 'gocard.php';
-    $gocard = new GoCard('card_number', 'password);
-    if($gocard->login()) {
-        echo $gocard->get_balance();
-        $gocard->logout();
-    }
-
-It is important to note that _you will need a file, writable by the web-server to store the cURL cookies_. This file is defined in the Weightbot class as $\_cookies\_file (default: 'cookies').
+First, install PHPUnit with `composer.phar install --dev`, then run 
+`./vendor/bin/phpunit`.
