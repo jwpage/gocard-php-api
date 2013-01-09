@@ -2,6 +2,7 @@
 namespace Jwpage;
 
 use Goutte\Client;
+use Jwpage\GoCard\History;
 
 class GoCard {
     
@@ -88,12 +89,13 @@ class GoCard {
                 $start = \DateTime::createFromFormat('d F Y h:i A', $currentDate.' '.$tds->item(0)->textContent);
                 $end   = \DateTime::createFromFormat('d F Y h:i A', $currentDate.' '.$tds->item(2)->textContent);
 
-                $entry = array(
-                    'startTime' => $start,
-                    'startLocation' => $tds->item(1)->textContent,
-                    'endTime'   => $end,
-                    'endLocation' => $tds->item(3)->textContent,
-                    'cost' => str_replace('$ ', '', $tds->item(4)->textContent),
+                
+                $entry = new History(
+                    $start,
+                    $tds->item(1)->textContent,
+                    $end,
+                    $tds->item(3)->textContent,
+                    str_replace('$ ', '', $tds->item(4)->textContent)
                 );
                 $entries[] = $entry;
             }

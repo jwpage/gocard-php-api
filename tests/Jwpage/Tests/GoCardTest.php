@@ -41,12 +41,13 @@ class GoCardTest extends \PHPUnit_Framework_TestCase
             new \DateTime('2012-08-01'), 
             new \DateTime('2012-09-01')
         );
+        $item = $results[0];
         $this->assertEquals(2, count($results));
-        $this->assertEquals('Indooroopilly', $results[0]['startLocation']);
-        $this->assertEquals('Toowong', $results[0]['endLocation']);
-        $this->assertEquals('3.28', $results[0]['cost']);
-        $this->assertEquals(new \DateTime('2013-01-08 08:12:00'), $results[0]['startTime']);
-        $this->assertEquals(new \DateTime('2013-01-08 08:23:00'), $results[0]['endTime']);
+        $this->assertEquals('Indooroopilly', $item->startLocation);
+        $this->assertEquals('Toowong', $item->endLocation);
+        $this->assertEquals('3.28', $item->cost);
+        $this->assertEquals(new \DateTime('2013-01-08 08:12:00'), $item->startTime);
+        $this->assertEquals(new \DateTime('2013-01-08 08:23:00'), $item->endTime);
     }
 
     public function testLogout()
