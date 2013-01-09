@@ -1,5 +1,7 @@
 # GoCard PHP API 
 
+[![Build Status](https://travis-ci.org/jwpage/gocard-php-api.png)](https://travis-ci.org/jwpage/gocard-php-api)
+
 A PHP5.3+ interface that scrapes the Queensland Transport GoCard website to
 retrieve your information.
 
