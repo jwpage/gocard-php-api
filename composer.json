@@ -1,5 +1,19 @@
 {
+    "name": "jwpage/gocard",
+    "description": "A PHP API for retrieving data from the Translink GoCard website.",
+    "type": "library",
     "minimum-stability": "dev",
+    "keywords": [
+        "gocard", "brisbane", "scraping"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Johnson Page",
+            "email": "jwpage@gmail.com",
+            "homepage": "http://johnsonpage.org"
+        }
+    ],
     "require": {
         "fabpot/goutte": "*",
         "guzzle/guzzle": "~3.0.7@stable"
@@ -8,8 +22,6 @@
         "phpunit/phpunit": "~3.7.10@stable"
     },
     "autoload": {
-        "psr-0": {
-            "Jwpage\\GoCard": "src/"
-        }
+        "psr-0": { "Jwpage\\GoCard": "src/" }
     }
 }
