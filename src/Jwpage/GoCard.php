@@ -4,32 +4,58 @@ namespace Jwpage;
 use Goutte\Client;
 use Jwpage\GoCard\History;
 
-class GoCard {
-    
+/**
+ * Class for interacting with GoCard website.
+ */
+class GoCard
+{
+    /**
+     * @var integer
+     */
     protected $cardNumber;
+    /**
+     * @var string
+     */
     protected $password;
+    /**
+     * @var \Symfony\Component\DomCrawler\Crawler
+     */
     protected $loginCrawler;
+    /**
+     * @var \Goutte\Client
+     */
     protected $client;
-    protected $baseUrl;
+    /**
+     * @var string 
+     */
+    protected $baseUrl = 'https://gocard.translink.com.au/webtix';
     
     /**
      * Creates a new GoCard instance.
+     * 
+     * @param integer $cardNumber 
+     * @param string  $password 
      */
     public function __construct($cardNumber, $password)
     {
         $this->cardNumber = $cardNumber;
         $this->password   = $password;
         $this->client     = new Client();
-        $this->baseUrl    = 'https://gocard.translink.com.au/webtix';
     }
 
+    /**
+     * Gets the Goutte Client for the scraper.
+     * 
+     * @return \Goutte\Client
+     */
     public function getClient()
     {
         return $this->client;
     }
     
     /**
-     * Logs the user in to the Gocard webiste.
+     * Logs the user in to the GoCard website.
+     *
      * @return boolean sucessful login
      */
     public function login() 
@@ -49,7 +75,8 @@ class GoCard {
 
     /**
      * Get the current GoCard balance.
-     * @return string balance in $xx.xx format
+     *
+     * @return string balance in xx.xx format
      */
     public function getBalance() {
         if (!$this->loginCrawler) {
@@ -62,8 +89,10 @@ class GoCard {
 
     /**
      * Get the GoCard activity history.
-     * @param string $period the period of history to retreive. Can be 'last20' or '-7', '-14', '-30' or '-60' days.
-     * @return array of arrays, containing 'time' (in ISO format), 'action', 'location' and 'charge'
+     *
+     * @param \DateTime $startDate start date for the query
+     * @param \DateTime $endDate   end date for the query 
+     * @return array containing History items
      */
     public function getHistory($startDate, $endDate) {
         $crawler = $this->client->request(
@@ -105,7 +134,8 @@ class GoCard {
     }
 
     /**
-     * Log the user out of the GoCard webiste.
+     * Log the user out of the GoCard website for this session.
+     *
      * @return true assumes successful logout.
      */
     public function logout() {
