@@ -3,7 +3,7 @@
 namespace Jwpage\GoCard;
 
 /**
- * A class to represent Go Card history information. 
+ * A class to represent Go Card history information.
  */
 class History
 {
@@ -12,7 +12,7 @@ class History
      */
     public $startTime;
     /**
-     * @var string 
+     * @var string
      */
     public $startLocation;
     /**
@@ -20,22 +20,22 @@ class History
      */
     public $endTime;
     /**
-     * @var string 
+     * @var string
      */
     public $endLocation;
     /**
-     * @var float 
+     * @var float
      */
     public $cost;
 
     /**
      * Creates a new History item
-     * 
-     * @param \DateTime $startTime 
-     * @param string    $startLocation 
-     * @param \DateTime $endTime 
-     * @param string    $endLocation 
-     * @param float     $cost 
+     *
+     * @param \DateTime $startTime
+     * @param string    $startLocation
+     * @param \DateTime $endTime
+     * @param string    $endLocation
+     * @param float     $cost
      */
     public function __construct($startTime, $startLocation, $endTime, $endLocation, $cost)
     {

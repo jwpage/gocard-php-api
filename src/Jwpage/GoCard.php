@@ -26,15 +26,15 @@ class GoCard
      */
     protected $client;
     /**
-     * @var string 
+     * @var string
      */
     protected $baseUrl = 'https://gocard.translink.com.au/webtix';
-    
+
     /**
      * Creates a new GoCard instance.
-     * 
-     * @param integer $cardNumber 
-     * @param string  $password 
+     *
+     * @param integer $cardNumber
+     * @param string  $password
      */
     public function __construct($cardNumber, $password)
     {
@@ -45,23 +45,23 @@ class GoCard
 
     /**
      * Gets the Goutte Client for the scraper.
-     * 
+     *
      * @return \Goutte\Client
      */
     public function getClient()
     {
         return $this->client;
     }
-    
+
     /**
      * Logs the user in to the GoCard website.
      *
      * @return boolean sucessful login
      */
-    public function login() 
+    public function login()
     {
         $crawler = $this->client->request(
-            'POST', 
+            'POST',
             $this->baseUrl.'/',
             array(
                 'cardNum' => $this->cardNumber,
@@ -70,6 +70,7 @@ class GoCard
             )
         );
         $this->loginCrawler = $crawler;
+
         return count($crawler->filter('.content h2:contains("Sorry, there was a problem")')) === 0;
     }
 
@@ -78,23 +79,26 @@ class GoCard
      *
      * @return string balance in xx.xx format
      */
-    public function getBalance() {
+    public function getBalance()
+    {
         if (!$this->loginCrawler) {
             $this->login();
         }
-        
+
         $balance = $this->loginCrawler->filter('#balance-table td:nth-of-type(2)')->text();
+
         return str_replace('$', '', $balance);
     }
 
     /**
      * Get the GoCard activity history.
      *
-     * @param \DateTime $startDate start date for the query
-     * @param \DateTime $endDate   end date for the query 
-     * @return array containing History items
+     * @param  \DateTime $startDate start date for the query
+     * @param  \DateTime $endDate   end date for the query
+     * @return array     containing History items
      */
-    public function getHistory($startDate, $endDate) {
+    public function getHistory($startDate, $endDate)
+    {
         $crawler = $this->client->request(
             'POST',
             $this->baseUrl.'/tickets-and-fares/go-card/online/history',
@@ -118,7 +122,6 @@ class GoCard
                 $start = \DateTime::createFromFormat('d F Y h:i A', $currentDate.' '.$tds->item(0)->textContent);
                 $end   = \DateTime::createFromFormat('d F Y h:i A', $currentDate.' '.$tds->item(2)->textContent);
 
-                
                 $entry = new History(
                     $start,
                     $tds->item(1)->textContent,
@@ -130,6 +133,7 @@ class GoCard
             }
             // TODO: handle .sub-heading-transacton rows
         }
+
         return $entries;
     }
 
@@ -138,14 +142,16 @@ class GoCard
      *
      * @return true assumes successful logout.
      */
-    public function logout() {
+    public function logout()
+    {
         $crawler = $this->client->request(
-            'GET', 
+            'GET',
             '/welcome/welcome.do',
             array(
                 'logout' => 'true'
             )
         );
+
         return count($crawler->filter('input[value="Login"]')) > 0;
     }
 }
